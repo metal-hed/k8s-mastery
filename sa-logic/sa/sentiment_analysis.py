@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route("/analyse/sentiment", methods=['POST'])
 def analyse_sentiment():
     sentence = request.get_json()['sentence']
-    polarity = TextBlob(sentence).sentences[0].polarity
+    polarity = TextBlob(sentence).sentiment.polarity
     return jsonify(
         sentence=sentence,
         polarity=polarity
